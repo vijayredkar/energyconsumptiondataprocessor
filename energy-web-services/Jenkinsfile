@@ -6,7 +6,7 @@ pipeline {
             steps {
                 echo 'Building..'
 		withMaven(maven: 'maven_3_0_5'){
-		    sh 'mvn clean compile'	
+		    bat 'mvn clean compile'	
 		}
 
             }
@@ -15,7 +15,7 @@ pipeline {
             steps {
                 echo 'Testing..'
 		withMaven(maven: 'maven_3_0_5'){
-		    sh 'mvn test'	
+		    bat 'mvn test'	
 		}
             }
         }
@@ -23,7 +23,7 @@ pipeline {
             steps {
                 echo 'Deploying....'
 		withMaven(maven: 'maven_3_0_5'){
-		    sh 'mvn deploy'	
+		    bat 'mvn deploy'	
 		}
             }
         }
