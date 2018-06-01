@@ -6,8 +6,7 @@ pipeline {
             steps {
                 echo 'Building..'
 		withMaven(maven: 'maven_3_0_5'){
-		    sh 'cd energy-web-services'
-		    sh 'mvn clean compile'	
+		    sh 'cd energy-web-services && mvn clean compile'
 		}
 
             }
@@ -16,8 +15,7 @@ pipeline {
             steps {
                 echo 'Testing..'
 		withMaven(maven: 'maven_3_0_5'){
-		    sh 'cd energy-web-services'	
-		    sh 'mvn test'	
+		    sh 'cd energy-web-services && mvn test'
 		}
             }
         }
@@ -25,8 +23,7 @@ pipeline {
             steps {
                 echo 'Deploying....'
 		withMaven(maven: 'maven_3_0_5'){
-		    sh 'cd energy-web-services' 
-		    sh 'mvn deploy'	
+		    sh 'cd energy-web-services && mvn deploy'
 		}
             }
         }
